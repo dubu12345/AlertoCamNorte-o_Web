@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Zones & Hazard Map – AlertoCamNorteño</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logo_alerto.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/logo_alerto.png">
+  <link rel="apple-touch-icon" href="img/logo_alerto.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body class="clear map-page">
+<header class="navbar fade-up">
+  <div class="logo">
+    <img src="img/logo_alerto.png" alt="AlertoCamNorteño Logo" class="logo-img">
+    <span class="logo-text">AlertoCamNorteño</span>
+  </div>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav-links" id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="disasters.html">Disasters</a>
+    <a href="hotlines.html">Hotlines</a>
+    <a href="news.html">News</a>
+    <a href="plan.html">Plan</a>
+    <a href="map.html" class="active">Map</a>
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+      <i class="fas fa-moon moon-icon"></i>
+      <i class="fas fa-sun sun-icon"></i>
+      <span class="theme-text">Dark/Light</span>
+    </button>
+  </nav>
+</header>
+
+<div class="hero-banner">
+  <div class="fade-up">
+    <h1><i class="fas fa-map-marked-alt"></i> Safe Zones & Hazard Map</h1>
+    <p class="page-subtitle">
+      View evacuation centers and high-risk zones across Camarines Norte. Stay informed and know where to go during emergencies.
+    </p>
+  </div>
+</div>
+
+<div class="map-container">
+  <section class="map-section fade-up">
+    <h2><i class="fas fa-map"></i> Interactive Map • Mapa ng Camarines Norte</h2>
+    <div id="map" class="shadow"></div>
+    
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-color" style="background: #e67e22;"></div><span>Coastal Risk</span></div>
+      <div class="legend-item"><div class="legend-color" style="background: #3498db;"></div><span>Flood Prone</span></div>
+      <div class="legend-item"><div class="legend-color" style="background: #e74c3c;"></div><span>Landslide Risk</span></div>
+      <div class="legend-item"><div class="legend-color" style="background: #27ae60;"></div><span>Evacuation Center</span></div>
+    </div>
+  </section>
+
+  <section class="map-section fade-up">
+    <h2><i class="fas fa-house-user"></i> Municipal Evacuation Centers</h2>
+    <div class="safezones-grid">
+      <div class="safezone-card">
+        <h3>Daet</h3>
+        <p>Provincial Sports Complex (Brgy. Lag-on) and Daet Elementary School.</p>
+        <div class="zone-tags">
+          <span class="zone-tag coastal">Coastal</span>
+          <span class="zone-tag flood">Flood</span>
+        </div>
+      </div>
+
+      <div class="safezone-card">
+        <h3>Basud</h3>
+        <p>Basud Sports Complex and Brgy. Pinagwarasan Covered Court.</p>
+        <div class="zone-tags">
+          <span class="zone-tag flood">Flood Watch</span>
+        </div>
+      </div>
+
+      <div class="safezone-card">
+        <h3>Capalonga</h3>
+        <p>Capalonga Municipal Gym and Brgy. Catioan Medical Site.</p>
+        <div class="zone-tags">
+          <span class="zone-tag coastal">Coastal</span>
+        </div>
+      </div>
+
+      <div class="safezone-card">
+        <h3>Jose Panganiban</h3>
+        <p>JP Evacuation Center and Paracale-Jose Panganiban Border Shelters.</p>
+        <div class="zone-tags">
+          <span class="zone-tag landslide">Landslide Risk</span>
+        </div>
+      </div>
+
+      <div class="safezone-card">
+        <h3>Labo</h3>
+        <p>Labo Convention Center and Brgy. Awitan Multi-purpose Hall.</p>
+        <div class="zone-tags">
+          <span class="zone-tag landslide">Landslide</span>
+          <span class="zone-tag flood">Flood</span>
+        </div>
+      </div>
+
+      <div class="safezone-card">
+        <h3>Mercedes</h3>
+        <p>Mercedes Gymnasium and Fish Port Evacuation Shelters.</p>
+        <div class="zone-tags">
+          <span class="zone-tag surge">Storm Surge</span>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  <section class="map-section fade-up hazard-container">
+    <h2><i class="fas fa-exclamation-triangle"></i> Hazard-Prone Areas • Mga Delikadong Lugar</h2>
+    <div class="hazard-grid">
+      <div class="hazard-card">
+        <h3>Coastal & Storm Surge Areas</h3>
+        <p>High-risk coastal barangays include:</p>
+        <ul>
+          <li>Bagasbas (Daet)</li>
+          <li>Apuao & Quinapaguian (Mercedes)</li>
+          <li>Sabang (Vinzons)</li>
+          <li>Mahabang Parang (Paracale)</li>
+          <li>Calampinay (Capalonga)</li>
+        </ul>
+      </div>
+
+      <div class="hazard-card">
+        <h3>Flood-Prone Areas</h3>
+        <ul>
+          <li>Matnog, Mampili (Basud)</li>
+          <li>Tigbinan, Fundado (Labo)</li>
+          <li>Gahonon, Lag-on (Daet)</li>
+          <li>San Isidro, Ilayang Bayan (San Vicente)</li>
+          <li>Poblacion (Talisay)</li>
+        </ul>
+      </div>
+
+      <div class="hazard-card">
+        <h3>Landslide-Prone Areas</h3>
+        <ul>
+          <li>Larap, Motherlode (Jose Panganiban)</li>
+          <li>Itok, Catabaguangan (Capalonga)</li>
+          <li>Malasugui, Daguit (Labo)</li>
+          <li>Mapulon, Calaburnay (San Lorenzo Ruiz)</li>
+          <li>Matogdon, Osmeña (Santa Elena)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <p><i class="far fa-copyright"></i> 2025 AlertoCamNorteño Camarines Norte • Safety Mapping</p>
+      <p><i class="fas fa-language"></i> Bilingual: English • Filipino</p>
+    </div>
+    <div class="footer-section">
+      <p><i class="fas fa-phone-alt"></i> Emergency Hotlines: 911 • 117</p>
+      <p><i class="fas fa-map-marker-alt"></i> Based in Camarines Norte, Bicol Region</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
